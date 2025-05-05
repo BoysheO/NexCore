@@ -1,0 +1,264 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 185f6993d5150494d98da50e26cb1c25, type: 3}
+  m_Name: AssetBundleCollectorSetting
+  m_EditorClassIdentifier: 
+  ShowPackageView: 0
+  ShowEditorAlias: 0
+  UniqueBundleName: 1
+  Packages:
+  - PackageName: DefaultPackage
+    PackageDesc: "\u4E3B\u8D44\u6E90\u5305"
+    EnableAddressable: 1
+    LocationToLower: 0
+    IncludeAssetGUID: 0
+    AutoCollectShaders: 1
+    IgnoreRuleName: NormalIgnoreRule
+    Groups:
+    - GroupName: TableBytes
+      GroupDesc: 
+      AssetTags: TableBytes
+      ActiveRuleName: EnableGroup
+      Collectors:
+      - CollectPath: Assets/Resources_Hotfix/Bytes/Table
+        CollectorGUID: edf6191d66c5ddf4ea171f52aca70306
+        CollectorType: 0
+        AddressRuleName: AddressByFileNameAndExt
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 
+    - GroupName: Patch4Win64
+      GroupDesc: 
+      AssetTags: Patch
+      ActiveRuleName: WindowGroup
+      Collectors:
+      - CollectPath: Assets/Resources_Hotfix/Bytes/Patch/StandaloneWindows64
+        CollectorGUID: 7ab777fd094cc0246a295d3e2c7f4426
+        CollectorType: 0
+        AddressRuleName: AddressByFileName
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 
+    - GroupName: Patch4Mac
+      GroupDesc: 
+      AssetTags: Patch
+      ActiveRuleName: MacGroup
+      Collectors:
+      - CollectPath: Assets/Resources_Hotfix/Bytes/Patch/StandaloneOSX
+        CollectorGUID: 483ad7f618a2549b5ab340f27e7cef56
+        CollectorType: 0
+        AddressRuleName: AddressByFileName
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 
+    - GroupName: Patch4Android
+      GroupDesc: 
+      AssetTags: Patch
+      ActiveRuleName: AndroidGroup
+      Collectors:
+      - CollectPath: Assets/Resources_Hotfix/Bytes/Patch/Android
+        CollectorGUID: ebb62c0a38c8e4149a624252f5a174a1
+        CollectorType: 0
+        AddressRuleName: AddressByFileName
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 
+    - GroupName: Patch4iOS
+      GroupDesc: 
+      AssetTags: Patch
+      ActiveRuleName: IPhoneGroup
+      Collectors:
+      - CollectPath: Assets/Resources_Hotfix/Bytes/Patch/iOS
+        CollectorGUID: b03718f0c0c8d4b10ad3928cbbf19d89
+        CollectorType: 0
+        AddressRuleName: AddressByFileNameAndExt
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 
+    - GroupName: Dll4Win
+      GroupDesc: 
+      AssetTags: Dll
+      ActiveRuleName: WindowGroup
+      Collectors:
+      - CollectPath: Assets/Resources_Hotfix/Bytes/Dll/StandaloneWindows64
+        CollectorGUID: 3ca3a4f807935ef4896e8576dca5cd4b
+        CollectorType: 0
+        AddressRuleName: AddressByFileNameAndExt
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 
+    - GroupName: Dll4Mac
+      GroupDesc: 
+      AssetTags: Dll
+      ActiveRuleName: MacGroup
+      Collectors:
+      - CollectPath: Assets/Resources_Hotfix/Bytes/Dll/StandaloneOSX
+        CollectorGUID: d65d7a66978e29e439fef2221d71cdec
+        CollectorType: 0
+        AddressRuleName: AddressByFileName
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 
+    - GroupName: Dll4Android
+      GroupDesc: 
+      AssetTags: Dll
+      ActiveRuleName: AndroidGroup
+      Collectors:
+      - CollectPath: Assets/Resources_Hotfix/Bytes/Dll/Android
+        CollectorGUID: 705122796fedd9d478622c23b5b77886
+        CollectorType: 0
+        AddressRuleName: AddressByFileName
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 
+    - GroupName: Dll4iOS
+      GroupDesc: 
+      AssetTags: Dll
+      ActiveRuleName: IPhoneGroup
+      Collectors:
+      - CollectPath: Assets/Resources_Hotfix/Bytes/Dll/iOS
+        CollectorGUID: 9dde4dd905c02924e8e3a332f430ad75
+        CollectorType: 0
+        AddressRuleName: AddressByFileName
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 
+    - GroupName: Pdb4Win
+      GroupDesc: 
+      AssetTags: Pdb
+      ActiveRuleName: WindowGroup
+      Collectors:
+      - CollectPath: Assets/Resources_Hotfix/Bytes/Pdb/StandaloneWindows64
+        CollectorGUID: aa2c33fc1fd798640b46bcb2494a2478
+        CollectorType: 0
+        AddressRuleName: AddressByFileNameAndExt
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 
+    - GroupName: Pdb4Mac
+      GroupDesc: 
+      AssetTags: Pdb
+      ActiveRuleName: MacGroup
+      Collectors:
+      - CollectPath: Assets/Resources_Hotfix/Bytes/Pdb/StandaloneOSX
+        CollectorGUID: 7d33a7ec50357584b8a3543f31278279
+        CollectorType: 0
+        AddressRuleName: AddressByFileName
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 
+    - GroupName: Pdb4Android
+      GroupDesc: 
+      AssetTags: Pdb
+      ActiveRuleName: AndroidGroup
+      Collectors:
+      - CollectPath: Assets/Resources_Hotfix/Bytes/Pdb/Android
+        CollectorGUID: 44d846f5f4c802e48bc263348f19d604
+        CollectorType: 0
+        AddressRuleName: AddressByFileNameAndExt
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 
+    - GroupName: Pdb4iOS
+      GroupDesc: 
+      AssetTags: Pdb
+      ActiveRuleName: IPhoneGroup
+      Collectors:
+      - CollectPath: Assets/Resources_Hotfix/Bytes/Pdb/iOS
+        CollectorGUID: 4034aa782821a1e4c979f6bbc63843d4
+        CollectorType: 0
+        AddressRuleName: AddressByFileName
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 
+    - GroupName: Scene
+      GroupDesc: 
+      AssetTags: 
+      ActiveRuleName: EnableGroup
+      Collectors:
+      - CollectPath: Assets/Resources_Hotfix/Scene
+        CollectorGUID: 1e64201eaa5eba541a9e38aeb651d603
+        CollectorType: 0
+        AddressRuleName: AddressByFileNameAndExt
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectScene
+        AssetTags: 
+        UserData: 
+    - GroupName: BuildInScene
+      GroupDesc: 
+      AssetTags: BuildIn
+      ActiveRuleName: EnableGroup
+      Collectors:
+      - CollectPath: Assets/Resources_BuildIn/Scene
+        CollectorGUID: 92ebdd05ac52b8c47a05f268b5884f90
+        CollectorType: 0
+        AddressRuleName: AddressByFileNameAndExt
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 
+    - GroupName: Font
+      GroupDesc: 
+      AssetTags: 
+      ActiveRuleName: EnableGroup
+      Collectors:
+      - CollectPath: Assets/Resources_BuildIn/Font
+        CollectorGUID: e37483ad45134fc47b876fa508281b50
+        CollectorType: 0
+        AddressRuleName: AddressByFileNameAndExt
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 
+      - CollectPath: Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans
+          SDF.asset
+        CollectorGUID: 8f586378b4e144a9851e7b34d9b748ee
+        CollectorType: 0
+        AddressRuleName: AddressByFileNameAndExt
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 
+    - GroupName: Other
+      GroupDesc: 
+      AssetTags: 
+      ActiveRuleName: EnableGroup
+      Collectors:
+      - CollectPath: Assets/Resources_Hotfix/Prefab/Manager
+        CollectorGUID: 9c605965081ef4c10a45553d3d26e8e3
+        CollectorType: 0
+        AddressRuleName: AddressByFileNameAndExt
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 
+      - CollectPath: Assets/Resources_Hotfix/Prefab/UI
+        CollectorGUID: 1a493523cb31743a9b5ab333f710efc6
+        CollectorType: 0
+        AddressRuleName: AddressByFileNameAndExt
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 

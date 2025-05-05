@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root Version="v2.1">
+  <Common ShowPackageView="False" ShowEditorAlias="False" UniqueBundleName="True" />
+  <Package PackageName="DefaultPackage" PackageDesc="主资源包" AutoAddressable="True" LocationToLower="False" IncludeAssetGUID="False" IgnoreRuleName="NormalIgnoreRule">
+    <Group GroupActiveRule="EnableGroup" GroupName="TableBytes" GroupDesc="" AssetTags="TableBytes">
+      <Collector CollectPath="Assets/Resources_Hotfix/Bytes/Table" CollectGUID="edf6191d66c5ddf4ea171f52aca70306" CollectType="MainAssetCollector" AddressRule="AddressByFileNameAndExt" PackRule="PackDirectory" FilterRule="CollectAll" UserData="" AssetTags="" />
+    </Group>
+    <Group GroupActiveRule="EnableGroup" GroupName="System" GroupDesc="" AssetTags="">
+      <Collector CollectPath="Assets/Resources_Hotfix/Prefab/System" CollectGUID="5e1d72ff84c6f4f409c5f28fde569f45" CollectType="MainAssetCollector" AddressRule="AddressByFileNameAndExt" PackRule="PackDirectory" FilterRule="CollectAll" UserData="" AssetTags="" />
+    </Group>
+    <Group GroupActiveRule="WindowGroup" GroupName="Patch4Win64" GroupDesc="" AssetTags="">
+      <Collector CollectPath="Assets/Resources_Hotfix/Bytes/Patch/StandaloneWindows64" CollectGUID="7ab777fd094cc0246a295d3e2c7f4426" CollectType="MainAssetCollector" AddressRule="AddressByFileName" PackRule="PackDirectory" FilterRule="CollectAll" UserData="" AssetTags="" />
+    </Group>
+    <Group GroupActiveRule="EnableGroup" GroupName="Dll" GroupDesc="" AssetTags="">
+      <Collector CollectPath="Assets/Resources_Hotfix/Bytes/Dll" CollectGUID="0badc9483f6d82541b608368b4ac8551" CollectType="MainAssetCollector" AddressRule="AddressByFileNameAndExt" PackRule="PackDirectory" FilterRule="CollectAll" UserData="" AssetTags="" />
+    </Group>
+    <Group GroupActiveRule="EnableGroup" GroupName="Pdb" GroupDesc="" AssetTags="">
+      <Collector CollectPath="Assets/Resources_Hotfix/Bytes/Pdb" CollectGUID="4434585afb48d614b907405b15f8bb4f" CollectType="MainAssetCollector" AddressRule="AddressByFileNameAndExt" PackRule="PackDirectory" FilterRule="CollectAll" UserData="" AssetTags="" />
+    </Group>
+    <Group GroupActiveRule="AndroidGroup" GroupName="Patch4Android" GroupDesc="" AssetTags="">
+      <Collector CollectPath="Assets/Resources_Hotfix/Bytes/Patch/Android" CollectGUID="ebb62c0a38c8e4149a624252f5a174a1" CollectType="MainAssetCollector" AddressRule="AddressByFileName" PackRule="PackDirectory" FilterRule="CollectAll" UserData="" AssetTags="" />
+    </Group>
+    <Group GroupActiveRule="IPhoneGroup" GroupName="Patch4iOS" GroupDesc="" AssetTags="">
+      <Collector CollectPath="Assets/Resources_Hotfix/Bytes/Patch/iOS" CollectGUID="b03718f0c0c8d4b10ad3928cbbf19d89" CollectType="MainAssetCollector" AddressRule="AddressByFileNameAndExt" PackRule="PackDirectory" FilterRule="CollectAll" UserData="" AssetTags="" />
+    </Group>
+    <Group GroupActiveRule="EnableGroup" GroupName="UIPrefab" GroupDesc="" AssetTags="">
+      <Collector CollectPath="Assets/Resources_Hotfix/Prefab/UIPrefab" CollectGUID="10c84ebb83c91824a997c241546591e9" CollectType="MainAssetCollector" AddressRule="AddressByFileNameAndExt" PackRule="PackDirectory" FilterRule="CollectAll" UserData="" AssetTags="" />
+    </Group>
+    <Group GroupActiveRule="EnableGroup" GroupName="Scene" GroupDesc="" AssetTags="">
+      <Collector CollectPath="Assets/Resources_Hotfix/Scene" CollectGUID="1e64201eaa5eba541a9e38aeb651d603" CollectType="MainAssetCollector" AddressRule="AddressByFileNameAndExt" PackRule="PackDirectory" FilterRule="CollectScene" UserData="" AssetTags="" />
+    </Group>
+    <Group GroupActiveRule="EnableGroup" GroupName="Loader" GroupDesc="" AssetTags="BuildIn">
+      <Collector CollectPath="Assets/Resources_BuildIn/Json" CollectGUID="0e4057f62362474ba6aefe94e89d8696" CollectType="MainAssetCollector" AddressRule="AddressByFileNameAndExt" PackRule="PackDirectory" FilterRule="CollectAll" UserData="" AssetTags="" />
+      <Collector CollectPath="Assets/Resources_BuildIn/Loader" CollectGUID="5c75be14911a8224ba94067ed53e0922" CollectType="MainAssetCollector" AddressRule="AddressByFileNameAndExt" PackRule="PackDirectory" FilterRule="CollectAll" UserData="" AssetTags="" />
+    </Group>
+    <Group GroupActiveRule="EnableGroup" GroupName="BuildInScene" GroupDesc="" AssetTags="BuildIn">
+      <Collector CollectPath="Assets/Resources_BuildIn/Scene" CollectGUID="92ebdd05ac52b8c47a05f268b5884f90" CollectType="MainAssetCollector" AddressRule="AddressByFileNameAndExt" PackRule="PackDirectory" FilterRule="CollectAll" UserData="" AssetTags="" />
+    </Group>
+    <Group GroupActiveRule="EnableGroup" GroupName="BuildInOther" GroupDesc="" AssetTags="" />
+    <Group GroupActiveRule="EnableGroup" GroupName="Font" GroupDesc="" AssetTags="">
+      <Collector CollectPath="Assets/Resources_BuildIn/Font" CollectGUID="e37483ad45134fc47b876fa508281b50" CollectType="MainAssetCollector" AddressRule="AddressByFileNameAndExt" PackRule="PackDirectory" FilterRule="CollectAll" UserData="" AssetTags="" />
+      <Collector CollectPath="Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" CollectGUID="8f586378b4e144a9851e7b34d9b748ee" CollectType="MainAssetCollector" AddressRule="AddressByFileNameAndExt" PackRule="PackDirectory" FilterRule="CollectAll" UserData="" AssetTags="" />
+      <Collector CollectPath="Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" CollectGUID="2e498d1c8094910479dc3e1b768306a4" CollectType="MainAssetCollector" AddressRule="AddressByFileNameAndExt" PackRule="PackDirectory" FilterRule="CollectAll" UserData="" AssetTags="" />
+    </Group>
+    <Group GroupActiveRule="EnableGroup" GroupName="Config" GroupDesc="" AssetTags="">
+      <Collector CollectPath="Assets/Resources_Hotfix/TextAssets/hotfix_appsetting.json" CollectGUID="d19520d958d318b46874ace771454bb2" CollectType="MainAssetCollector" AddressRule="AddressByFileNameAndExt" PackRule="PackDirectory" FilterRule="CollectAll" UserData="" AssetTags="" />
+    </Group>
+    <Group GroupActiveRule="EnableGroup" GroupName="TechTree" GroupDesc="" AssetTags="">
+      <Collector CollectPath="Assets/Resources_BuildIn/TechTree.asset" CollectGUID="0452775b85562f140ab457fefb433ebd" CollectType="MainAssetCollector" AddressRule="AddressByFileNameAndExt" PackRule="PackDirectory" FilterRule="CollectAll" UserData="" AssetTags="" />
+    </Group>
+    <Group GroupActiveRule="EnableGroup" GroupName="StyleOption" GroupDesc="" AssetTags="">
+      <Collector CollectPath="Assets/Resources_Hotfix/Other/StyleOption.asset" CollectGUID="ff736baa71260e047a484d1b8af03cbd" CollectType="MainAssetCollector" AddressRule="AddressByFileNameAndExt" PackRule="PackDirectory" FilterRule="CollectAll" UserData="" AssetTags="" />
+    </Group>
+    <Group GroupActiveRule="EnableGroup" GroupName="Audio" GroupDesc="" AssetTags="">
+      <Collector CollectPath="Assets/Resources_Hotfix/Audio/Music" CollectGUID="40b7baefa6c9e694b9e03f53adbb66bf" CollectType="MainAssetCollector" AddressRule="AddressByFileNameAndExt" PackRule="PackSeparately" FilterRule="CollectAll" UserData="" AssetTags="" />
+      <Collector CollectPath="Assets/Resources_Hotfix/Audio/Sound" CollectGUID="cf31cfc17f2473f49b561720e8af27fc" CollectType="MainAssetCollector" AddressRule="AddressByFileNameAndExt" PackRule="PackDirectory" FilterRule="CollectAll" UserData="" AssetTags="" />
+    </Group>
+  </Package>
+</root>
