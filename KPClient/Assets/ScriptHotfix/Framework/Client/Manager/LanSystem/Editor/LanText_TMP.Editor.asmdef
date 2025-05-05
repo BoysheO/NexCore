@@ -1,0 +1,13 @@
+{
+  "name": "LanText_TMP.Editor",
+  "includePlatforms": [
+    "Editor"
+  ],
+  "defineConstraints": [
+    "INCLUDE_HOTFIX"
+  ],
+  "references": [
+    "Hotfix",
+    "BuildIn"
+  ]
+}

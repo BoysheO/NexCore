@@ -1,0 +1,23 @@
+{
+    "name": "TableDataManagerEditor",
+    "rootNamespace": "",
+    "references": [
+        "Hotfix",
+        "UniRx",
+        "BuildIn",
+        "MyEditor"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "INCLUDE_HOTFIX"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

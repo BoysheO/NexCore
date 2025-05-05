@@ -1,0 +1,21 @@
+{
+    "name": "SoundManagerEditor",
+    "rootNamespace": "",
+    "references": [
+        "Hotfix",
+        "BuildIn"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "INCLUDE_HOTFIX"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
