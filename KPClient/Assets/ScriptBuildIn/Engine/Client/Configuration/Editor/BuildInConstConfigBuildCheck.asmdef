@@ -1,0 +1,11 @@
+{
+  "name": "BuildInConstConfigBuildCheck",
+  "includePlatforms": [
+    "Editor"
+  ],
+  "references": [
+    "BuildIn",
+    "HybridCLR.Editor",
+    "HybridCLR.Runtime"
+  ]
+}

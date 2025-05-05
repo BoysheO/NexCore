@@ -1,0 +1,91 @@
+<#@ template language="C#" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@template language="C#"#>
+<#@import namespace="System.Linq"#>
+<#@import namespace="System"#>
+<#@assembly name="System.Core"#>
+<#@assembly name="mscorlib.dll"#>
+<#@import namespace="System.Text"#>
+<#@import namespace="System.Collections.Generic"#>
+<#@output extension=".Generated.cs"encoding="utf-8"#>
+<#
+    var types = new Dictionary<string, string[]>()
+    {
+        ["Vector4"] = new[] {"xyzw", "float"},
+        ["Vector3"] = new[] {"xyz", "float"},
+        ["Vector2"] = new[] {"xy", "float"},
+        // ["Vector4Int"] = "xyzw",
+        ["Vector3Int"] = new[] {"xyz", "int"},
+        ["Vector2Int"] = new[] {"xy", "int"},
+    };
+#>
+/*CodeGen
+*Don't edit manually
+*/
+using UnityEngine;
+
+namespace BoysheO.Extensions.Unity3D.Extensions
+{
+    public static partial class VectorExtensions
+    {
+<#
+    foreach (var kvp in types)
+    {
+        var type = kvp.Key;
+        char[] members = kvp.Value[0].ToCharArray();
+        var memberType = kvp.Value[1];
+#>
+        /// <summary>
+        /// 哈达玛积
+        /// </summary>
+        public static <#= type #> HadamardProduct(this <#= type #> l,<#= type #> r)
+        {
+            return new <#= type #>(
+<#
+        var membersLength = members.Length;
+        for (var i = 0; i < membersLength; i++)
+        {
+            var member = members[i];
+            var endOfline = i == membersLength - 1 ? "" : ",";
+#>
+                l.<#= member #> * r.<#= member #><#= endOfline #>
+<#
+        }
+#>
+            );
+        }
+        /// <summary>
+        /// 哈达玛积
+        /// </summary>
+        public static <#= type #> HadamardProduct(this <#= type #> l,
+<#
+        for (var i = 0; i < membersLength; i++)
+        {
+            var member = members[i];
+            var endOfline = i == membersLength - 1 ? "" : ",";
+#>
+                <#= memberType #> <#= member #><#= endOfline #>
+<#
+        }
+#>
+                )
+        {
+            return new <#= type #>(
+<#
+        for (var i = 0; i < membersLength; i++)
+        {
+            var member = members[i];
+            var endOfline = i == membersLength - 1 ? "" : ",";
+#>
+                l.<#= member #> * <#= member #><#= endOfline #>
+<#
+        }
+#>
+            );
+        }
+<#
+    }
+#>
+    }
+}
