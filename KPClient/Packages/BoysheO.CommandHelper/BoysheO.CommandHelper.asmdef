@@ -1,0 +1,6 @@
+{
+  "name": "BoysheO.CommandHelper",
+  "includePlatforms": [
+    "Editor"
+  ]
+}

@@ -1,0 +1,14 @@
+# 正确配置这4项很重要。注意：统一使用/号作为路径分割符
+
+# root = "D:/Repository/KP"
+root = "D:/Repository/KP"
+
+# client = "RainTown2SurvivalGameClient"
+client = "KPClient"
+
+# solution = "RainTown2SurvivalGameSolution"
+solution = "KPSolution"
+
+# unity_editor_dlls = "C:/Program Files/Unity/Hub/Editor/2022.3.20f1c1/Editor/Data/Managed"
+# 在mac上，unity_editor_dlls路径大约是这样的：/Applications/Unity/Hub/Editor/2022.3.42f1/Unity.app/Contents/Managed
+unity_editor_dlls = "C:/Program Files/Unity/Hub/Editor/2022.3.42f1/Editor/Data/Managed"

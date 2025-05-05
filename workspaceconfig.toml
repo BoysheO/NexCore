@@ -1,0 +1,17 @@
+[secret]
+#自定义签名文件，在客户端开启签名验证机制的前提下，只有被签名的配置文件才会被读取
+cert_file = "Secret/Project.crt"
+pfx_file = "Secret/Project.pfx"
+
+
+[client_setting]
+HotfixDllBytesRelativeSaveDir = "Assets/Resources_Hotfix/Bytes/Dll"
+HotfixPdbBytesRelativeSaveDir = "Assets/Resources_Hotfix/Bytes/Pdb"
+HotfixPatchBytesRelativeSaveDir = "Assets/Resources_Hotfix/Bytes/Patch"
+#列表元素与UnityEditor.BuildTarget枚举一致 这影响批量出执行各个运行平台的构建等相关逻辑要遍历哪些运行平台
+#注意在不同机器下，有些选项是各自冲突的。windows机器无法构建macOS
+BuildTargetsInMac = ["iOS","Android","StandaloneOSX"]
+BuildTargetsInWin = ["StandaloneWindows64","Android"]
+
+[server_setting]
+

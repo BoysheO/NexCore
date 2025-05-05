@@ -1,0 +1,14 @@
+推荐使用Unity插件，没有直接买，无需解释
+OdinInspector 
+工程中大量使用了它。没有它这套框架依然可以使用，但是会少一些工具
+
+推荐使用的文件服务器：hfs2
+官网https://www.rejetto.com/hfs/（没翻墙的话网页布局会变混乱，但可以正常使用；这个挺好用的，也很稳定）
+gayhub上下载：https://github.com/rejetto/hfs/releases/download/v0.55.4/hfs-windows-x64-0.55.4.zip
+
+证书管理工具：
+X - Certificate and Key management
+windows商店下载：https://apps.microsoft.com/detail/9n9k02v7xr1b?hl=en-US&gl=US
+gayHub：https://github.com/chris2511/xca/
+
+以上软件都支持mac与windows

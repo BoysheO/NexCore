@@ -1,0 +1,9 @@
+.idea/
+.vs/
+obj/
+bin/
+*.db
+*.apk
+a_BurstDebugInformation_DoNotShip/
+.DS_Store
+temp
