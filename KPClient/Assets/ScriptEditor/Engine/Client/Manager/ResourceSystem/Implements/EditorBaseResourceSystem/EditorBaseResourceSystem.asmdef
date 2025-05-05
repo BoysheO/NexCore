@@ -1,0 +1,10 @@
+{
+  "name": "EditorBaseResourceSystem",
+  "includePlatforms": [
+    "Editor"
+  ],
+  "references": [
+    "Runtime",
+    "BuildIn"
+  ]
+}

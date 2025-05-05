@@ -1,0 +1,6 @@
+{
+  "name": "ScriptingDefineSymbolsSystem",
+  "includePlatforms": [
+    "Editor"
+  ]
+}

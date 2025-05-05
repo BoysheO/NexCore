@@ -1,0 +1,7 @@
+{
+  "name": "MyOdinInspector.Editor",
+  "references": [
+    "ScriptingDefineSymbolsSystem"
+  ],
+  "includePlatforms": ["Editor"]
+}
