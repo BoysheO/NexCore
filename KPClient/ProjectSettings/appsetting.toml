@@ -1,0 +1,15 @@
+DefaultLanguage = "ChineseSimplified"
+LanguageSupport = [ 
+    "English",
+    "ChineseSimplified",
+    "ChineseTraditional",
+    # "Japanese", 
+    # "Koreana",
+    # "Russian"
+    ]
+
+#语言别名转换
+[LanguageConvert]
+Chinese = "ChineseSimplified"
+schinese = "ChineseSimplified"
+tchinese = "ChineseTraditional"

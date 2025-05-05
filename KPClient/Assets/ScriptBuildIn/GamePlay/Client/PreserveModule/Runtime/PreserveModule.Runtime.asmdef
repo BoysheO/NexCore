@@ -1,0 +1,30 @@
+{
+  "name": "PreserveModule.Runtime",
+  "references": [
+    "Unity.Mathematics",
+    "Unity.RenderPipelines.Universal.Runtime",
+    "AppScript",
+    "spine-unity",
+    "spine-csharp",
+    "Cinemachine",
+    "UniTask",
+    "BoysheO.Extensions4Unity",
+    "BoysheO.YooAsset",
+    "BoysheO.Collection",
+    "BoysheO.Collection2",
+    "BoysheO.Extensions",
+    "BoysheO.ObjectPool",
+    "BoysheO.Collection.Abstractions",
+    "LINQToGameObject",
+    "TinyStateMachine",
+    "UniTask.DOTween",
+    "DOTween.Modules",
+    "DOTweenPro.Scripts",
+    "Coffee.UIParticle",
+    "Loader",
+    "UIEffect"
+  ],
+  "defineConstraints": [
+    "INCLUDE_PRESERVETYPE"
+  ]
+}

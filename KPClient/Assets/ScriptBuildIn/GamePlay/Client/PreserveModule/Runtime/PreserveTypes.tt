@@ -1,0 +1,377 @@
+<#@ template language="C#" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@template language="C#"#>
+<#@import namespace="System.Linq"#>
+<#@import namespace="System"#>
+<#@assembly name="System.Core"#>
+<#@assembly name="mscorlib.dll"#>
+<#@import namespace="System.Text"#>
+<#@import namespace="System.Collections.Generic"#>
+<#@output extension=".Generated.cs"encoding="utf-8"#>
+<#
+    var baseValueType = new string[]
+    {
+        "bool", //用byte替代吧
+        "byte",
+        //"sbyte",
+        "ushort",
+        // "short",
+        "uint",
+        "int",
+        "ulong",
+        "long",
+        "float",
+        "double",
+        //"decimal",
+        "char",
+    };
+
+    var advType = new string[]
+    {
+        "DateTimeOffset",
+        "TimeSpan",
+    };
+    var nullableType = new string[]
+    {
+        // "uint?",
+        "int?",
+        // "long?",
+        // "ulong?",
+        // "float?",
+        // "double?",
+        "DateTimeOffset?",
+        "TimeSpan?"
+    };
+    var nullableType2 = new string[]
+    {
+        // "Nullable<bool>",
+        // "Nullable<byte>",
+        // "Nullable<sbyte>",
+        // "Nullable<ushort>",
+        // "Nullable<short>",
+        // "Nullable<uint>",
+        "Nullable<int>",
+        // "Nullable<ulong>",
+        // "Nullable<long>",
+        // "Nullable<float>",
+        // "Nullable<double>",
+        // "Nullable<decimal>",
+        // "Nullable<char>",
+        "Nullable<DateTimeOffset>",
+        "Nullable<TimeSpan>",
+    };
+
+    var u3dVecTypes = new Dictionary<string, string>()
+    {
+        ["Vector4"] = "xyzw",
+        ["Vector3"] = "xyz",
+        ["Vector2"] = "xy", //用v3替代
+        //["Vector4Int"] = "xyzw",
+        ["Vector3Int"] = "xyz",
+        ["Vector2Int"] = "xy", //用v3i替代
+    };
+    var u3dStructTypes = new[]
+    {
+        //"UnityEngine.ResourceManagement.ResourceProviders.SceneInstance",
+        "UnityEngine.EventSystems.RaycastResult",
+        //"UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle",
+        "UnityEngine.Color",
+        "UnityEngine.Color32",
+        "UnityEngine.BoundsInt",
+        "UnityEngine.Bounds",
+    };
+    var objectTuple = new string[]
+    {
+        "System.ValueTuple<object>",
+        // "System.ValueTuple<object,object>",
+        //"System.ValueTuple<object,object,object>",
+        //"System.ValueTuple<object,object,object,object>",
+        //"System.ValueTuple<object,object,object,object,object>",
+        //"System.ValueTuple<object,object,object,object,object,object>",
+    };
+    var allOfTypes = baseValueType
+            .Concat(advType)
+            .Concat(nullableType)
+            .Concat(u3dVecTypes.Keys)
+            .Concat(u3dStructTypes)
+            .Concat(objectTuple)
+            .Concat(new[] { "object" }).ToArray();
+#>
+//auto generate by ,don't edit manually
+// ReSharper disable All
+using UnityEngine.Scripting;
+using UnityEngine;
+using System;
+using System.Threading.Tasks;
+
+[assembly: UnityEngine.Scripting.AlwaysLinkAssembly]
+
+namespace PreserveTypesScripts
+{
+    [Preserve]
+    internal partial class PreserveTypes
+    {
+        [Preserve]
+        private void Foo(){
+            new System.Memory<byte>();//pb解析可能要用到
+            _=  Parallel.For(0, 1,(Action<int>)default);
+            {
+               var result = Parallel.For(0, 1, (Action<int, ParallelLoopState>) default);
+               var c = result.IsCompleted;
+               var b = result.LowestBreakIteration;
+            }
+            //new Grpc.Core.Channel(default,default);
+
+            new Cysharp.Threading.Tasks.UniTask();
+            new Cysharp.Threading.Tasks.UniTask<Cysharp.Threading.Tasks.AsyncUnit>();
+            System.Action.RemoveAll(default,default);
+            //_ = UniRx.Unit.Default;
+            _ = ((object) null);
+            _ = ((object) null, (object) null);
+            _ = ((object) null, (object) null,(object)null);
+            _ = ((object) null, (object) null,(object)null,(object)null);
+            _ = ((object) null, (object) null,(object)null,(object)null,(object)null);
+            _ = ((object) null, (object) null,(object)null,(object)null,(object)null,(object)null);
+            //_ = new Tuple{(object) null)};
+            //_ = new Tuple{(object) null),(object)null};
+            //_ = new Tuple{(object) null),(object)null,(object)null};
+            //_ = new Tuple{(object) null),(object)null,(object)null,(object)null};
+            //_ = new Tuple{(object) null),(object)null,(object)null,(object)null,(object)null};
+            //_ = new Tuple{(object) null),(object)null,(object)null,(object)null,(object)null,(object)null};
+                
+            new System.Collections.Generic.List<(object,object)>(); 
+            new System.Collections.Generic.List<(object,object,object)>(); 
+            new System.Collections.Generic.List<(object,object,object,object)>(); 
+            new System.Collections.Generic.List<(object,object,object,object,object)>();  
+            new System.Collections.Generic.List<(object,object,object,object,object,object)>(); 
+
+            //UnityEngine.AddressableAssets.Addressables.LoadAssetAsync<UnityEngine.Object>(default);
+            //_ = new UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle<UnityEngine.ResourceManagement.ResourceProviders.SceneInstance>();
+<#
+    {
+        //对只有1个元素的元组处理
+        var innerTypes = baseValueType.Concat(advType)
+                .Concat(nullableType2)
+                .Concat(u3dVecTypes.Keys)
+                .Concat(u3dStructTypes)
+                .ToArray();
+        foreach (string t in innerTypes)
+        {
+#>
+            _ = (object)default(ValueTuple<<#= t #>>);
+<#
+        }
+    }
+#>
+<#
+    {
+        //对只有2个元素的元组处理
+        var innerTypes = baseValueType.Concat(advType)
+                .Concat(nullableType2)
+                .Concat(u3dVecTypes.Keys)
+                .Concat(u3dStructTypes)
+                .ToArray();
+        foreach (string t1 in innerTypes)
+        {
+            foreach (string t2 in innerTypes)
+            {
+#>
+            _ = (object)default(ValueTuple<<#= t1 #>,<#= t2 #>>);            
+<#
+            }
+        }
+    }
+#>
+<#
+    {
+        //对只有1个泛型参数的类型普适性处理
+        var signleGeneric = baseValueType
+                .Concat(advType)
+                .Concat(nullableType2)
+                .Concat(u3dVecTypes.Keys)
+                .Concat(u3dStructTypes)
+                .Select(v => $"ValueTuple<{v}>")
+                .Concat(baseValueType)
+                .Concat(advType)
+                .Concat(nullableType)
+                .Concat(u3dVecTypes.Keys)
+                .Concat(u3dStructTypes)
+                .Concat(objectTuple)
+                .ToArray();
+
+        foreach (var t in signleGeneric)
+        {
+#>
+            //new Collections.Pooled.PooledList<<#= t #>>();
+            //new Collections.Pooled.PooledQueue<<#= t #>>();
+            //new Collections.Pooled.PooledSet<<#= t #>>();
+            //new Collections.Pooled.PooledStack<<#= t #>>();
+
+            //new System.Runtime.CompilerServices.StrongBox<<#= t #>>();
+            new System.Collections.Generic.List<<#= t #>>();
+            //new System.Collections.Generic.HashSet<<#= t #>>();
+            //ET.ETAsyncTaskMethodBuilder<<#= t #>>.Create();
+           
+
+            System.Func<<#= t #>>.RemoveAll(default,default);
+            System.Action<<#= t #>>.RemoveAll(default,default);
+            new UnityEngine.Events.UnityEvent<<#= t #>>();
+
+            //BoysheO.Buffers.PooledListBuffer<<#= t #>>.Rent();
+            //BoysheO.Buffers.SimpleListPool<<#= t #>>.Share.Rent();
+
+            new Cysharp.Threading.Tasks.UniTask<<#= t #>>.Awaiter();
+            Cysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder<<#= t #>>.Create();
+
+            //new Google.Protobuf.Collections.RepeatedField<<#= t #>>();
+            //_ = typeof(Google.Protobuf.FieldCodec<<#= t #>>);
+
+            //_ = typeof(MessagePack.Formatters.IMessagePackFormatter<<#= t #>>);
+
+           //System.Collections.Immutable.ImmutableArray.CreateBuilder<<#= t #>>();
+           //System.Collections.Immutable.ImmutableList.CreateBuilder<<#= t #>>();
+
+           //new System.ArraySegment<<#= t #>>();
+           //new System.Span<<#= t #>>();
+           System.Buffers.ArrayPool<<#= t #>>.Create();
+           //new System.Buffers.ReadOnlySequence<<#= t #>>();
+           //new System.Collections.Concurrent.ConcurrentBag<<#= t #>>();
+           //new System.Memory<<#= t #>>();
+
+            _ = new DG.Tweening.Core.DOGetter<<#= t #>>(default (DG.Tweening.Core.DOGetter<<#= t #>>));
+            _ = new DG.Tweening.Core.DOSetter<<#= t #>>(default (DG.Tweening.Core.DOSetter<<#= t #>>));
+            //_ = new UnityEngine.Events.UnityAction<<#= t #>>(default(UnityEngine.Events.UnityAction<<#= t #>>));
+            //_ = new UnityEngine.Events.UnityEvent<<#= t #>>();
+
+            #region Boysheo.Collection2
+
+            _ = BoysheO.Collection2.VList<<#= t #>>.Rent();
+            _ = BoysheO.Collection2.VHashSet<<#= t #>>.Rent();
+            _ = BoysheO.Collection2.VOrderedSet<<#= t #>>.Rent();
+
+            //_ = VDictionary<int, int>.Rent();
+            //_ = VSortedList<int, int>.Rent();
+
+            #endregion
+
+            #region BoysheO.Collection
+
+            //_ = new BoysheO.Collection.PList<<#= t #>>();
+
+            //_ = new PDictionary<int, int>();
+            //_ = new PSortedList<int, int>();
+
+            #endregion
+<#
+        }
+    }
+#>
+<#
+    //针对kv键值对处理
+    var keys = new string[]
+    {
+        // "bool",//用byte替代吧
+        // "byte",
+        //"sbyte",
+        //"ushort",
+        //"short",
+        //"uint",
+        "int",
+        "ulong",
+        //"long",
+        //"float",
+        //"double",
+        //"decimal",
+        // "char",
+        // "string",
+        "object",
+    };
+
+    foreach (var key in keys)
+    {
+        foreach (var value in allOfTypes)
+        {
+#>
+            //new Collections.Pooled.PooledDictionary<<#= key #>, <#= value #>>();
+            new System.Collections.Generic.Dictionary<<#= key #>, <#= value #>>();
+            //new System.Collections.Generic.SortedDictionary<<#= key #>, <#= value #>>();
+            //new Google.Protobuf.Collections.MapField<<#= key #>, <#= value #>>();
+            //BoysheO.Buffers.PooledSortedListBuffer<<#= key #>, <#= value #>>.Rent(default);
+            //BoysheO.Buffers.PooledDictionaryBuffer<<#= key #>, <#= value #>>.Rent();
+
+            System.Func<<#= key #>, <#= value #>>.RemoveAll(default,default);
+            System.Action<<#= key #>, <#= value #>>.RemoveAll(default,default);
+
+            //System.Collections.Immutable.ImmutableDictionary.CreateBuilder<<#= key #>, <#= value #>>();
+            //System.Collections.Immutable.ImmutableSortedDictionary.CreateBuilder<<#= key #>, <#= value #>>();
+
+            #region Boysheo.Collection2
+
+            _ = BoysheO.Collection2.VDictionary<<#= key #>, <#= value #>>.Rent();
+            _ = BoysheO.Collection2.VSortedList<<#= key #>, <#= value #>>.Rent();
+
+            #endregion
+
+            #region BoysheO.Collection
+
+            //_ = new BoysheO.Collection.PDictionary<<#= key #>, <#= value #>>();
+            //_ = new BoysheO.Collection.PSortedList<<#= key #>, <#= value #>>();
+
+            #endregion
+<#
+        }
+    }
+#>
+            
+<#
+    {
+        //针对2个泛型值类型处理
+        var types = baseValueType.Concat(advType)
+                .Concat(nullableType)
+                .Concat(u3dVecTypes.Keys)
+                .Concat(u3dStructTypes)
+                .ToArray();
+        foreach (var arg0 in types)
+        {
+            foreach (var arg1 in types)
+            {
+#>
+            //_ = new System.Tuple<<#= arg0 #>, <#= arg1 #>>(default,default);
+            //_ = new UnityEngine.Events.UnityAction<<#= arg0 #>, <#= arg1 #>>(default(UnityEngine.Events.UnityAction<<#= arg0 #>, <#= arg1 #>>));
+            _ = new System.Action<<#= arg0 #>, <#= arg1 #>>(default(System.Action<<#= arg0 #>, <#= arg1 #>>));
+            _ = new System.Func<<#= arg0 #>, <#= arg1 #>>(default(System.Func<<#= arg0 #>, <#= arg1 #>>));
+<#
+            }
+        }
+    }
+#>
+
+<#
+    {
+        //针对3个泛型值类型处理
+        var types = baseValueType.Concat(advType)
+                .Concat(nullableType)
+                .Concat(u3dVecTypes.Keys)
+                .Concat(u3dStructTypes)
+                .ToArray();
+        foreach (var arg0 in types)
+        {
+            foreach (var arg1 in types)
+            {
+                foreach (string arg2 in types)
+                {
+#>
+            //_ = new System.Tuple<<#= arg0 #>, <#= arg1 #>, <#= arg2 #>>(default,default,default);
+            //_ = new UnityEngine.Events.UnityAction<<#= arg0 #>, <#= arg1 #>, <#= arg2 #>>(default(UnityEngine.Events.UnityAction<<#= arg0 #>, <#= arg1 #>, <#= arg2 #>>));
+            //_ = new System.Action<<#= arg0 #>, <#= arg1 #>, <#= arg2 #>>(default(System.Action<<#= arg0 #>, <#= arg1 #>, <#= arg2 #>>));
+            //_ = new System.Func<<#= arg0 #>, <#= arg1 #>, <#= arg2 #>>(default(System.Func<<#= arg0 #>, <#= arg1 #>, <#= arg2 #>>));
+<#
+                }
+            }
+        }
+    }
+#>
+        }
+    }
+}

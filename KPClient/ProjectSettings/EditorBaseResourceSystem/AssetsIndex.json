@@ -1,0 +1,23 @@
+{
+    "Key2Path": {
+        "buildingTable.bytes": "Assets/Resources_Hotfix/Bytes/Table/buildingTable.bytes",
+        "ChineseSimplifiedTable.bytes": "Assets/Resources_Hotfix/Bytes/Table/ChineseSimplifiedTable.bytes",
+        "ChtTable.bytes": "Assets/Resources_Hotfix/Bytes/Table/ChtTable.bytes",
+        "configTable.bytes": "Assets/Resources_Hotfix/Bytes/Table/configTable.bytes",
+        "EnglishTable.bytes": "Assets/Resources_Hotfix/Bytes/Table/EnglishTable.bytes",
+        "giftTable.bytes": "Assets/Resources_Hotfix/Bytes/Table/giftTable.bytes",
+        "goalTable.bytes": "Assets/Resources_Hotfix/Bytes/Table/goalTable.bytes",
+        "hardTable.bytes": "Assets/Resources_Hotfix/Bytes/Table/hardTable.bytes",
+        "itemsTable.bytes": "Assets/Resources_Hotfix/Bytes/Table/itemsTable.bytes",
+        "JpTable.bytes": "Assets/Resources_Hotfix/Bytes/Table/JpTable.bytes",
+        "KrTable.bytes": "Assets/Resources_Hotfix/Bytes/Table/KrTable.bytes",
+        "placeTable.bytes": "Assets/Resources_Hotfix/Bytes/Table/placeTable.bytes",
+        "policyTable.bytes": "Assets/Resources_Hotfix/Bytes/Table/policyTable.bytes",
+        "propertyLanTable.bytes": "Assets/Resources_Hotfix/Bytes/Table/propertyLanTable.bytes",
+        "questTable.bytes": "Assets/Resources_Hotfix/Bytes/Table/questTable.bytes",
+        "researchTable.bytes": "Assets/Resources_Hotfix/Bytes/Table/researchTable.bytes",
+        "RuTable.bytes": "Assets/Resources_Hotfix/Bytes/Table/RuTable.bytes",
+        "techEffectTable.bytes": "Assets/Resources_Hotfix/Bytes/Table/techEffectTable.bytes",
+        "techRequireTable.bytes": "Assets/Resources_Hotfix/Bytes/Table/techRequireTable.bytes"
+    }
+}
