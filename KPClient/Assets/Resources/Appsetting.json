@@ -1,0 +1,17 @@
+{
+  "DefaultLanguage": "ChineseSimplified",
+  "LanguageSupport": [
+    "English",
+    "ChineseSimplified",
+    "ChineseTraditional"
+  ],
+  "LanguageConvert": {
+    "Chinese": "ChineseSimplified",
+    "schinese": "ChineseSimplified",
+    "tchinese": "ChineseTraditional"
+  },
+  "HotfixList" : [
+    "Hotfix"
+  ],
+  "StartUpScene": "StartUp.unity"
+}
