@@ -1,0 +1,24 @@
+﻿services:
+  fileserverdocker:
+    image: fileserverdocker
+    build:
+      context: .
+      dockerfile: FileServerDocker/Dockerfile
+
+  accountservices:
+    image: accountservices
+    build:
+      context: .
+      dockerfile: AccountServices/Dockerfile
+
+  servicemanagerservice:
+    image: servicemanagerservice
+    build:
+      context: .
+      dockerfile: ServiceManagerService/Dockerfile
+
+  grpcservice1:
+    image: grpcservice1
+    build:
+      context: .
+      dockerfile: GrpcService1/Dockerfile

@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BoysheO.Extensions" Version="2.0.18" />
+    <PackageReference Include="EPPlus" Version="4.5.3.3" />
+    <PackageReference Include="LinqForEEPlus" Version="1.0.1" />
+    <PackageReference Include="System.CodeDom" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SoultionConfigNotaboutClient\SoultionConfigNotaboutClient.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="ModelCodeTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ModelCodeTemplate.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="ModelCodeTemplate.cs">
+      <DependentUpon>ModelCodeTemplate.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,35 @@
+<#@ template language="C#" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@template language="C#"#>
+<#@import namespace="System.Linq"#>
+<#@import namespace="System"#>
+<#@assembly name="System.Core"#>
+<#@assembly name="mscorlib.dll"#>
+<#@import namespace="System.Text"#>
+<#@import namespace="System.Collections.Generic"#>
+<#@output extension=".Generated.cs"encoding="utf-8"#>
+<#
+    var GenerateLocation = Session["GenerateLocation"] as string;
+    var sigs = Session["sigs"] as IReadOnlyDictionary<string, (string type,string value)> ??
+               throw new NullReferenceException();
+#>
+/*CodeGen from <#= GenerateLocation #>
+*Don't edit manually
+*/
+namespace ProgramConstConfigSystem{
+    public static class ProgramConstConfig
+    {
+    <#
+        foreach (var keyValuePair in sigs)
+        {
+            var name = keyValuePair.Key;
+            var type = keyValuePair.Value.type;
+            var value = keyValuePair.Value.value;
+    #>
+        public const <#= type #> <#= name #> = <#= value #>;
+    <#
+        }
+    #>
+}
+}

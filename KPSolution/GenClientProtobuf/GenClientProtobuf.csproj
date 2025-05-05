@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProtocTools\ProtocTools.csproj" />
+    <ProjectReference Include="..\SolutionConfig\SolutionConfig.csproj" />
+    <ProjectReference Include="..\WorkFlowUtil\WorkFlowUtil.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="UnityProtoC\macox_arm64\protoc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="UnityProtoC\macosx_arm64\protoc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="UnityProtoC\windows_x64\protoc.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UnityProtoC\windows_x64\" />
+  </ItemGroup>
+</Project>

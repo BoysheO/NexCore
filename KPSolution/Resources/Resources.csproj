@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>ProtobufFiles</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="ProtobufFile\BuildIn\Framework\" />
+    <Folder Include="ProtobufFile\BuildIn\GamePlay\" />
+    <Folder Include="ProtobufFile\Hotfix\Engine\" />
+    <Folder Include="ProtobufFile\Hotfix\Framework\" />
+    <Folder Include="ProtobufFile\Hotfix\Framework\ClientCode\" />
+    <Folder Include="ProtobufFile\Hotfix\GamePlay\" />
+    <Folder Include="ProtobufFile\Server\" />
+    <Folder Include="TablesBytes\" />
+    <Folder Include="Tables\ServerOnly\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\..\environmentconfig.toml">
+      <Link>environmentconfig.toml</Link>
+    </Content>
+  </ItemGroup>
+</Project>

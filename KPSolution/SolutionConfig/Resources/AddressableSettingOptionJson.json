@@ -1,0 +1,48 @@
+{
+  "ExcludeExt": [
+    ".meta",
+    ".tpsheet",
+    ".gitignore"
+  ],
+  "ExcludeFile": [
+    "Thumbs.db"
+  ],
+  "GroupName_Directory": [
+    {
+      "GroupName": "UI",
+      "Directory": "AddressableResources/Prefab/UIPrefab"
+    },
+    {
+      "GroupName": "System",
+      "Directory": "AddressableResources/Prefab/System"
+    },
+    {
+      "GroupName": "SpriteAtlas",
+      "Directory": "AddressableResources/SpriteAtlas"
+    },
+    {
+      "GroupName": "Front",
+      "Directory": "AddressableResources/TextMesh Pro CustomResources"
+    },
+    {
+      "GroupName": "Scenes",
+      "Directory": "AddressableResources/Scenes"
+    },
+    {
+      "GroupName": "TableData",
+      "Directory": "AddressableResources/Table"
+    },
+    {
+      "GroupName": "Asb",
+      "Directory": "AddressableResources/ASB"
+    },
+    {
+      "GroupName": "FixedResource",
+      "Directory": "AddressableResources/FixedResource"
+    },
+    {
+      "GroupName": "Sound",
+      "Directory": "AddressableResources/Sound"
+    }
+  ]
+}

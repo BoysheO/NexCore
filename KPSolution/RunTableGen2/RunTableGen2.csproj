@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="BoysheO.Extensions" Version="6.7.1" />
+        <PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="9.0.3"/>
+        <PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.3"/>
+        <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="9.0.3"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\ProtocTools\ProtocTools.csproj"/>
+        <ProjectReference Include="..\SolutionConfig\SolutionConfig.csproj"/>
+        <ProjectReference Include="..\TableDataGenerator\TableDataGenerator.csproj"/>
+        <ProjectReference Include="..\WorkFlowUtil\WorkFlowUtil.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="UnityProtocWithOdin\macosx_arm64\protoc">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="UnityProtocWithOdin\windows_x64\protoc.exe">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+</Project>

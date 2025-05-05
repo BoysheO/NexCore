@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/duration.proto";
+
+package hello_world;
+
+service HelloWorld{
+  rpc GetInitData(google.protobuf.Empty) returns (GetInitDataRet);
+  rpc GetRandom(google.protobuf.Empty) returns (GetRandomRet);
+}
+
+message GetInitDataRet{
+  repeated int32 initData = 1;
+}
+
+message GetRandomRet{
+  int32 randomVal = 1;
+}
+
+
+
+

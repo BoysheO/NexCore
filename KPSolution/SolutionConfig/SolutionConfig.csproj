@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>8</LangVersion>
+  </PropertyGroup>
+	<ItemGroup>
+	  <PackageReference Include="ListPool" Version="2.3.6" />
+	</ItemGroup>
+	<ItemGroup>
+	  <None Remove="Resources\AddressableSettingOptionJson.json" />
+	  <EmbeddedResource Include="Resources\AddressableSettingOptionJson.json" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\EnvironmentConfig\EnvironmentConfig.csproj" />
+	</ItemGroup>
+
+</Project>

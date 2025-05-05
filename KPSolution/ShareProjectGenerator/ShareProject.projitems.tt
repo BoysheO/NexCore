@@ -1,0 +1,44 @@
+<#@ template language="C#" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@template language="C#"#>
+<#@import namespace="System.Linq"#>
+<#@import namespace="System"#>
+<#@assembly name="System.Core"#>
+<#@assembly name="mscorlib.dll"#>
+<#@import namespace="System.Text"#>
+<#@import namespace="System.Collections.Generic"#>
+<#@output extension=".Generated.cs"encoding="utf-8"#>
+<#
+    var generateLocation = Session["GenerateLocation"] as string ?? throw new Exception("misisng GenerateLocation");
+    var moduleNames = Session["ModuleNames"] as string[] ?? throw new Exception("misisng ModuleNames");
+    var moduleDirs = Session["ModuleDirs"] as string[] ?? throw new Exception("missing ModuleDirs");
+    var module = moduleNames.Zip(moduleDirs, (name, dir) => (name, dir)).ToArray();
+#>
+<?xml version="1.0" encoding="utf-8"?>
+<!--CodeGen from <#=generateLocation#>-->
+<!--Don't edit manually-->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+        <HasSharedItems>true</HasSharedItems>
+        <SharedGUID>5A9EB458-BA34-4EF5-ADF1-A99F3A90AEFF</SharedGUID>
+    </PropertyGroup>
+    <PropertyGroup Label="Configuration">
+        <Import_RootNamespace>SharedCode</Import_RootNamespace>
+    </PropertyGroup>
+<#
+    foreach (var (name,dir) in module)
+    {
+        #>
+    <ItemGroup>
+        <Compile Include="$(Unity3DClientDir)/<#=dir#>/**/*.cs">
+          <Link><#=name#>/%(RecursiveDir)%(FileName)%(Extension)</Link>
+        </Compile>
+    </ItemGroup>
+
+<#
+    }
+#>
+
+</Project>

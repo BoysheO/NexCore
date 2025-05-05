@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="Tomlyn.props" />
+  <PropertyGroup>
+    <PackageId>Tomlyn</PackageId>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Compatibility\" />
+  </ItemGroup>
+</Project>

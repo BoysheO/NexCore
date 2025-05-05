@@ -1,0 +1,58 @@
+<#@ template language="C#" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@template language="C#"#>
+<#@import namespace="System.Linq"#>
+<#@import namespace="System"#>
+<#@assembly name="System.Core"#>
+<#@assembly name="mscorlib.dll"#>
+<#@import namespace="System.Text"#>
+<#@import namespace="System.Collections.Generic"#>
+<#@output extension=".Generated.cs"encoding="utf-8"#>
+<#@ import namespace="OfficeOpenXml.FormulaParsing.Excel.Functions.Logical" #>
+<#
+    var pckName = Session["PckName"] as string ?? throw new Exception("missing PckName");
+    //table名应当和excel表文件名大小写一致
+            var tableName = Session["TableName"] as string ?? throw new Exception("missing table Name");
+            //列名没有要求，但生成的代码总是大写开头的
+            var columNames = Session["ColumNames"] as string[] ?? throw new Exception("missing ColumNames");
+            //它应该是int32 int64 string double bool中的一种，不应该是其他类型
+            var columTypesPrefix = Session["ColumTypes"] as string[] ?? throw new Exception("missing ColumTypes");
+            //决定是否添加repeated标识
+            var columIsAry = Session["ColumIsAry"] as bool[] ?? throw new Exception("missing ColumIsAry");
+            //注释数组不能为null，注释内容可以为空白，自动忽略空白
+            var colComment = Session["ColumComment"] as string[] ?? throw new Exception("missing ColumComment");
+            // var colTags = Session["ColumTag"] as string[] ?? throw new Exception("missing ColumTag");
+            // var filter = Session["Filter"] as string ?? throw new Exception("missing filter");
+            var isIncluded = Session["ColumIsIncluded"] as bool[] ?? throw new Exception("missing ColumIsIncluded");
+            
+            var len = columNames.Length;
+            if (columTypesPrefix.Length != len || columIsAry.Length != len || colComment.Length != len)
+                throw new Exception("invalid colum");
+#>
+//auto generate
+syntax = "proto3";
+
+option csharp_namespace = "TableModels.Models"; 
+
+package <#= pckName #>;
+
+message <#= tableName #>Table{
+<#
+            for (int i = 0; i < columTypesPrefix.Length; i++)
+            {
+                var prefix = columTypesPrefix[i];
+                var isAry = columIsAry[i];
+                var name = columNames[i];
+                var comment = colComment[i];
+                //如果这列的tags包含filter字，则该字段会被生成代码。否则只生成被注释掉的代码
+                //第0行是id行，固定会被包含不受tag影响
+                //tags.Length==0的情形即此列tag为空白，表示输入任何filter参数都参与生成
+                var isInclude = isIncluded[i];
+#>
+    <#=isInclude?"":"//"#><#=(string.IsNullOrWhiteSpace(comment) ? "" : $"//{comment}") #>
+    <#=isInclude?"":"//"#><#= isAry ? "repeated " : "" #><#= prefix #> <#= name #> = <#= i + 1 #>;
+<#
+            }
+#>
+}

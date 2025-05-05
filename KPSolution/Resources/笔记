@@ -1,0 +1,11 @@
+docker部署mysql库
+
+docker run `
+-ti `
+--name mysql_battlegame `
+-v D:/mysqlDB:/var/lib/mysql `
+-p 4478:3306 `
+-e MYSQL_ROOT_PASSWORD="8RG5NJiT" `
+--restart always `
+mysql:8.4.3
+

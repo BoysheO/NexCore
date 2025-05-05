@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--CodeGen from D:\Repository\KP-NexCore-Mini\KPSolution\ShareProjectGenerator\Program.cs@<Main>$:21-->
+<!--Don't edit manually-->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+        <HasSharedItems>true</HasSharedItems>
+        <SharedGUID>5A9EB458-BA34-4EF5-ADF1-A99F3A90AEFF</SharedGUID>
+    </PropertyGroup>
+    <PropertyGroup Label="Configuration">
+        <Import_RootNamespace>SharedCode</Import_RootNamespace>
+    </PropertyGroup>
+    <ItemGroup>
+        <Compile Include="$(Unity3DClientDir)/\Assets\ScriptBuildIn\Engine\Share/**/*.cs">
+          <Link>Engine.BuildIn/%(RecursiveDir)%(FileName)%(Extension)</Link>
+        </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Include="$(Unity3DClientDir)/\Assets\ScriptHotfix\Framework\Share/**/*.cs">
+          <Link>Framework.Hotfix/%(RecursiveDir)%(FileName)%(Extension)</Link>
+        </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Include="$(Unity3DClientDir)/\Assets\ScriptHotfix\GamePlay\Share/**/*.cs">
+          <Link>GamePlay.Hotfix/%(RecursiveDir)%(FileName)%(Extension)</Link>
+        </Compile>
+    </ItemGroup>
+
+
+</Project>

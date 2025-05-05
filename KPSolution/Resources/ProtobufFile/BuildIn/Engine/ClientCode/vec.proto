@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+message vec2{
+  float x = 1;
+  float y = 2;
+}
+
+message vec3{
+  float x = 1;
+  float y = 2;
+  float z = 3;
+}
+
+message ivec2{
+  int32 x = 1;
+  int32 y = 2;
+}
+
+message ivec3{
+  int32 x = 1;
+  int32 y = 2;
+}
+
+message iRect{
+  ivec2 min = 1;
+  ivec2 max = 2 ;
+}

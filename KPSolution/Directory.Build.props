@@ -1,0 +1,9 @@
+<Project>
+    <!--    auto generate,don't edit manually-->
+    <PropertyGroup>
+        <RootDir>D:/Repository/FangZhou</RootDir>
+        <UnityEditorDlls>C:/Program Files/Unity/Hub/Editor/2022.3.42f1/Editor/Data/Managed</UnityEditorDlls>
+        <Unity3DClientDir>D:/Repository/FangZhou/FangZhouClient</Unity3DClientDir>
+        <SolutionDir>D:/Repository/FangZhou/FangZhouSolution</SolutionDir>
+    </PropertyGroup>
+</Project>

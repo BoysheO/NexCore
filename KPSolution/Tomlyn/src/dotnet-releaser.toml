@@ -1,0 +1,5 @@
+[msbuild]
+project = ["Tomlyn.sln", "Tomlyn.Signed/Tomlyn.Signed.csproj"]
+[github]
+user = "xoofx"
+repo = "Tomlyn"

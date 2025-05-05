@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <RootNamespace>UnlimiteMap</RootNamespace>
+        <LangVersion>8</LangVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="BoysheO.Extensions" Version="5.0.0" />
+      <PackageReference Include="NativeMemoryArray" Version="1.2.0" />
+    </ItemGroup>
+
+</Project>

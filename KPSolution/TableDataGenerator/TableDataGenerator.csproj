@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>11</LangVersion>
+    <TargetFramework>net9.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="BoysheO.Extensions" Version="6.7.1" />
+    <PackageReference Include="EPPlus" Version="4.5.3.3" />
+    <PackageReference Include="Google.Protobuf" Version="3.29.3" />
+    <PackageReference Include="LinqForEEPlus" Version="1.0.1" />
+    <PackageReference Include="ListPool" Version="2.3.6" />
+    <PackageReference Include="MessagePack" Version="2.5.172" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.3" />
+    <PackageReference Include="System.CodeDom" Version="8.0.0" />
+    <PackageReference Include="System.Collections.Immutable" Version="8.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="PbDataGeneratorSystem\ProtoT4.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ProtoT4.cs</LastGenOutput>
+    </None>
+    <None Update="MsgPckGeneratorSystem\ModelCodeTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ModelCodeTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="PbDataGeneratorSystem\PartialPart.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>PartialPart.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="PbDataGeneratorSystem\ProtoT4.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProtoT4.tt</DependentUpon>
+    </Compile>
+    <Compile Update="MsgPckGeneratorSystem\ModelCodeTemplate.cs">
+      <DependentUpon>ModelCodeTemplate.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="PbDataGeneratorSystem\PartialPart.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PartialPart.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WorkFlowUtil\WorkFlowUtil.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WorkFlowUtil\WorkFlowUtil.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,66 @@
+<#@ template language="C#" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@template language="C#"#>
+<#@import namespace="System.Linq"#>
+<#@import namespace="System"#>
+<#@assembly name="System.Core"#>
+<#@assembly name="mscorlib.dll"#>
+<#@import namespace="System.Text"#>
+<#@import namespace="System.Collections.Generic"#>
+<#@output extension=".Generated.cs"encoding="utf-8"#>
+<#
+    string GenerateLocation = Session["GenerateLocation"] as string ?? throw new NullReferenceException();
+    string ModelName = Session["ModelName"] as string ?? throw new NullReferenceException();
+    string[] FieldTypes = Session["FieldTypes"] as string[] ?? throw new NullReferenceException();
+    string[] FieldName = Session["FieldName"] as string[] ?? throw new NullReferenceException();
+    var lowerFieldName = FieldName.Select(v => v.ToLower()).ToArray();
+    var keyType = FieldTypes[0];
+    var keyName = FieldName[0];
+#>
+/*CodeGen from <#= GenerateLocation #>
+*Don't edit manually
+*/
+
+using System.Collections.Immutable;
+using MessagePack;
+using System;
+using TableModels.Abstractions;
+
+namespace TableModels.Models
+{
+    [MessagePackObject]
+    public partial class <#= ModelName #> :ITableData<<#= keyType #>>
+    {
+<#
+    for (int i = 0; i < FieldTypes.Length; i++)
+    {
+        var type = FieldTypes[i];
+        var name = FieldName[i];
+#>
+         [Key(<#= i #>)]
+        public readonly <#= type #> @<#= name #>;
+<#
+    }
+#>
+<#
+    var signAry = FieldTypes.Zip(lowerFieldName, (type, name) => $"{type} @{name}");
+    var argText = string.Join(",", signAry);
+#>
+        public <#= ModelName #>(<#= argText #>)
+        {
+<#
+    for (int i = 0; i < FieldTypes.Length; i++)
+    {
+        var lowerName = lowerFieldName[i];
+        var name = FieldName[i];
+#>
+            this.<#=name#> = @<#=lowerName#>;
+<#
+    }
+#>
+        }
+
+        <#= keyType #> ITableData<<#= keyType #>>.Key => this.@<#= keyName #>;
+    }
+}

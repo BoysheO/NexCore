@@ -1,0 +1,38 @@
+<#@ template language="C#" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@template language="C#"#>
+<#@import namespace="System.Linq"#>
+<#@import namespace="System"#>
+<#@assembly name="System.Core"#>
+<#@assembly name="mscorlib.dll"#>
+<#@import namespace="System.Text"#>
+<#@import namespace="System.Collections.Generic"#>
+<#@output extension=".Generated.cs"encoding="utf-8"#>
+<#
+    var generateLocation = Session["GenerateLocation"] as string ?? throw new Exception("misisng GenerateLocation");
+    
+#>
+//未写完
+/*CodeGen from <#=generateLocation#>
+*Don't edit manually
+*/
+    public static OpenSteamRet Rent()
+    {
+      if (_pooled.TryTake(out var ins))
+      {
+        return ins;
+      }
+      return new OpenSteamRet();
+    }
+
+    public static void Return(OpenSteamRet steamRet)
+    {
+      steamRet.ClearMessage();
+      _pooled.Add(steamRet);
+    }
+    static OpenSteamRet()
+    {
+      _pooled = new ConcurrentBag<OpenSteamRet>();
+      _parser =  new pb::MessageParser<OpenSteamRet>(Rent);
+    }

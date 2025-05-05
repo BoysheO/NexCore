@@ -1,0 +1,107 @@
+<#@ template language="C#" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@template language="C#"#>
+<#@import namespace="System.Linq"#>
+<#@import namespace="System"#>
+<#@assembly name="System.Core"#>
+<#@assembly name="mscorlib.dll"#>
+<#@import namespace="System.Text"#>
+<#@import namespace="System.Collections.Generic"#>
+<#@output extension=".Generated.cs"encoding="utf-8"#>
+<#@ import namespace="BoysheO.Extensions" #>
+<#
+    var typeName = Session["TypeName"] as string ?? throw new Exception("missing TypeName");
+    var keyType = Session["KeyType"] as string ?? throw new Exception("missing KeyType");
+    var keyName = Session["KeyName"] as string ?? throw new Exception("missing KeyName");
+    var fieldNames = Session["FieldNames"] as string[] ?? throw new Exception("missing fieldNames");
+    var fieldCLRTypes = Session["FieldCLRTypes"] as string[] ?? throw new Exception("missing fieldCLRTypes");
+    var fieldIncluded = Session["FieldInclude"] as bool[] ?? throw new Exception("missing FieldInclude");
+    
+    var baseTypes = new string[]
+    {
+        "int", "long", "double", "bool", "string"
+    };
+#>
+//auto generate
+using System;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using TableModels.Abstractions;
+
+namespace TableModels.Models
+{
+    public partial class <#= typeName #>:ITableData
+    {
+        public int Key => <#= keyName #>;
+
+        //inject by tableManager
+        [JsonIgnore]        
+        private IServiceProvider ServiceProvider { get; set; }
+
+<#
+    foreach (var clrType in baseTypes)
+    {
+#>
+        public <#= clrType #> Get<#= clrType.MakeFirstCharUpperOrNot() #>(string key)
+        {
+            switch (key)
+            {
+<#
+        for (int i = 0; i < fieldNames.Length; i++)
+        {
+            var name = fieldNames[i];
+            name = name.MakeFirstCharUpperOrNot();
+            var type = fieldCLRTypes[i];
+            if (type != clrType) continue;
+            var isInclude = fieldIncluded[i];
+#>
+                <#=isInclude?"":"//"#>case nameof(<#= name #>):
+                <#=isInclude?"":"//"#>    return <#= name #>;
+<#
+        }
+#>
+                default:
+                    throw new MissingFieldException($"no such field {key} or not <#= clrType #>  type");
+            }
+        }
+<#
+    }
+#>
+
+<#
+    foreach (var clrType in baseTypes)
+    {
+#>
+        public IReadOnlyList<<#= clrType #>> Get<#= clrType.MakeFirstCharUpperOrNot() #>Lst(string key)
+        {
+            switch (key)
+            {
+<#
+        for (int i = 0; i < fieldNames.Length; i++)
+        {
+            var name = fieldNames[i];
+            var type = fieldCLRTypes[i];
+            var isInclude = fieldIncluded[i];
+            if (type != $"RepeatedField<{clrType}>") continue;
+#>
+                <#=isInclude?"":"//"#>case nameof(<#= name #>):
+                <#=isInclude?"":"//"#>      return <#= name #>;
+<#
+        }
+#>
+                default:
+                    throw new MissingFieldException($"no such field {key} or not <#= $"RepeatedField<{clrType}>" #>  type");
+            }
+        }
+<#
+    }
+#>
+
+        public IReadOnlyList<string> GetKeys()
+        {
+            // ReSharper disable once SuspiciousTypeConversion.Global
+            return (IReadOnlyList<string>) Descriptor.Fields.InFieldNumberOrder();
+        }
+    }
+}
