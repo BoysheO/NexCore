@@ -1,0 +1,11 @@
+{
+  "name": "UnityController.Editor",
+  "references": [
+    "BuildIn",
+    "UniRx",
+    "UniTask"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ]
+}
